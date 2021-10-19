@@ -4,7 +4,6 @@ const User = require("../models/User");
 const { hash, compare} = require("bcryptjs");//비밀번호에 hash라는 랜덤한 수를 생성해줌, compare는 PW와 PW확인을 비교해줌
 const mongoose = require("mongoose");
 const Image = require("../models/Image");
-const mongoose = require("mongoose");
 
 
 userRouter.post("/register", async(req,res)=>{

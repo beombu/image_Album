@@ -9,7 +9,7 @@ import { ImageContext} from "../context/ImageContext";
 // const dbpassword =  mHlMp2kGKRf1GhZP;
 
 const UploadForm =() =>{
-    const {setImages,} = useContext(ImageContext);
+    const {setImages,setMyImages} = useContext(ImageContext);
     const [files, setFiles] = useState(null);
     const [previews, setPreviews] = useState([]);
     const [percent, setPercent] = useState(0);
@@ -51,7 +51,8 @@ const UploadForm =() =>{
                 }
 
             });
-            setImages((prevData)=> [...prevData,...res.data]);
+            if(isPublic) setImages((prevData)=> [...res.data,...prevData]);
+            setMyImages((prevData)=> [...res.data,...prevData]);
             toast.success("success");
             setTimeout(() =>{
                 setPercent(0);
